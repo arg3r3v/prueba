@@ -136,7 +136,7 @@ body, html {
 /* Estilos específicos para pantallas pequeñas (móviles) */
 @media (max-width: 1023px) {
     #player {
-        width: 5vh; /* Usamos vh en lugar de px */
+        width: 10vh; /* Usamos vh en lugar de px */
         height: auto;
     }
 
@@ -146,11 +146,11 @@ body, html {
     }
 
     .lives-counter, #score-counter {
-        font-size: 1.5vh; /* Usamos vh en lugar de px */
+        font-size: 2.5vh; /* Usamos vh en lugar de px */
         padding: 1vh 2vh;
     }
 
     #start-button, #restart-button {
-        font-size: 1.5vh; /* Usamos vh en lugar de px */
+        font-size: 3vh; /* Usamos vh en lugar de px */
     }
 }
