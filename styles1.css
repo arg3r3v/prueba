@@ -136,21 +136,21 @@ body, html {
 /* Estilos específicos para pantallas pequeñas (móviles) */
 @media (max-width: 1023px) {
     #player {
-        width: 50px;
+        width: 5vh; /* Usamos vh en lugar de px */
         height: auto;
     }
 
     .obstacle, .bug {
-        width: 30px;
-        height: 30px;
+        width: 3vh; /* Usamos vh en lugar de px */
+        height: 3vh; /* Usamos vh en lugar de px */
     }
 
     .lives-counter, #score-counter {
-        font-size: 12px;
-        padding: 5px 10px;
+        font-size: 1.5vh; /* Usamos vh en lugar de px */
+        padding: 1vh 2vh;
     }
 
     #start-button, #restart-button {
-        font-size: 12px;
+        font-size: 1.5vh; /* Usamos vh en lugar de px */
     }
 }
