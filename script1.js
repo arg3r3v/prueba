@@ -13,17 +13,8 @@ let touchStartX = 0;
 let touchEndX = 0;
 
 document.addEventListener('mousemove', movePlayer);
-document.addEventListener('touchstart', touchStart);
-document.addEventListener('touchend', touchEnd);
-
-function touchStart(event) {
-    touchStartX = event.changedTouches[0].clientX;
-}
-
-function touchEnd(event) {
-    touchEndX = event.changedTouches[0].clientX;
-    movePlayer();
-}
+document.addEventListener('touchstart', movePlayer);
+document.addEventListener('touchmove', movePlayer);
 
 function movePlayer(event) {
     let x;
@@ -38,7 +29,6 @@ function movePlayer(event) {
         player.style.left = `${x}px`;
     }
 }
-
 
 // Cambiar la imagen cada 500 milisegundos
 setInterval(() => {
