@@ -136,7 +136,7 @@ body, html {
 /* Estilos específicos para pantallas pequeñas (móviles) */
 @media (max-width: 1023px) {
     #player {
-        width: 10vh; /* Usamos vh en lugar de px */
+        width: 12vh; /* Usamos vh en lugar de px */
         height: auto;
     }
 
