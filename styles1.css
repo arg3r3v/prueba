@@ -40,7 +40,7 @@ body, html {
     position: absolute;
     top: 2%;
     right: 2%;
-    font-size: 2vw; /* Tamaño de fuente relativo */
+    font-size: 1.5vw; /* Tamaño de fuente relativo */
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 1% 2%; /* Padding relativo */
@@ -61,7 +61,7 @@ body, html {
     position: absolute;
     top: 2%;
     left: 2%;
-    font-size: 2vw; /* Tamaño de fuente relativo */
+    font-size: 1.5vw; /* Tamaño de fuente relativo */
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 1% 2%; /* Padding relativo */
