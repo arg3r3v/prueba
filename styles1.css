@@ -151,6 +151,6 @@ body, html {
     }
 
     #start-button, #restart-button {
-        font-size: 3vh; /* Usamos vh en lugar de px */
+        font-size: 2.5vh; /* Usamos vh en lugar de px */
     }
 }
