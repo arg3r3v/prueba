@@ -146,7 +146,7 @@ body, html {
     }
 
     .lives-counter, #score-counter {
-        font-size: 1vh; /* Usamos vh en lugar de px */
+        font-size: 1.5vh; /* Usamos vh en lugar de px */
         padding: 1vh 2vh;
     }
 
