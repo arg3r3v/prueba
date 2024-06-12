@@ -42,7 +42,7 @@ setInterval(() => {
 
 const gameArea = document.querySelector('.game-area');
 
-function createObstacle() {
+function createDesktopObstacle() {
     const obstacle = document.createElement('div');
     obstacle.classList.add('obstacle');
     
@@ -66,6 +66,34 @@ function createObstacle() {
     obstacle.style.backgroundRepeat = 'no-repeat';
     obstacle.style.width = '7vh'; // Cambiado a unidades vh
     obstacle.style.height = '7vh'; // Cambiado a unidades vh
+    
+    gameArea.appendChild(obstacle);
+}
+
+function createMobileObstacle() {
+    const obstacle = document.createElement('div');
+    obstacle.classList.add('obstacle');
+    
+    // Posición aleatoria en el eje X
+    obstacle.style.left = `${Math.random() * 95}%`;
+    
+    // Posición aleatoria arriba o abajo del área de juego
+    obstacle.style.top = `${Math.random() < 0.5 ? -Math.random() * 200 : window.innerHeight + Math.random() * 200}px`;
+    
+    // Rotación aleatoria
+    obstacle.style.transform = `rotate(${Math.random() * 360}deg)`;
+    
+    // Alternar entre dos imágenes diferentes para los obstáculos
+    if (Math.random() < 0.5) {
+        obstacle.style.backgroundImage = 'url("img/basura1.png")';
+    } else {
+        obstacle.style.backgroundImage = 'url("img/basura21.png")';
+    }
+    
+    obstacle.style.backgroundSize = 'contain';
+    obstacle.style.backgroundRepeat = 'no-repeat';
+    obstacle.style.width = '5vh'; // Cambiado a unidades vh
+    obstacle.style.height = '5vh'; // Cambiado a unidades vh
     
     gameArea.appendChild(obstacle);
 }
@@ -123,19 +151,29 @@ function loseLife() {
 }
 
 function resetGame() {
+    // Reiniciar variables de estado
     lives = 3;
     score = 0;
     speed = 2; // Reiniciar la velocidad
     obstacleInterval = 1000; // Reiniciar el intervalo de aparición de obstáculos
+    
+    // Actualizar contadores en la interfaz
     updateLivesCounter();
     updateScoreCounter();
+    
+    // Eliminar todos los obstáculos y bichos actuales
     document.querySelectorAll('.obstacle').forEach(obstacle => obstacle.remove());
     document.querySelectorAll('.bug').forEach(bug => bug.remove());
-    clearInterval(gameInterval); // Detener el aumento de la velocidad
-    clearInterval(obstacleCreationLoop); // Detener la creación de obstáculos
+    
+    // Detener todos los intervalos en curso
+    clearInterval(gameInterval);
+    clearInterval(obstacleCreationLoop);
     clearGameLoops();
+    
+    // Reiniciar los bucles del juego
     startSpeedIncrease(); // Reiniciar el aumento de la velocidad
     startObstacleCreation(); // Reiniciar la creación de obstáculos
+    
     console.log('Game reset');
 }
 
@@ -205,9 +243,18 @@ function startSpeedIncrease() {
 }
 
 function startObstacleCreation() {
-    obstacleCreationLoop = setInterval(() => {
-        createObstacle(); // Crear un obstáculo
-    }, obstacleInterval);
+    clearInterval(obstacleCreationLoop); // Limpiar cualquier intervalo anterior para evitar duplicaciones
+    if (window.innerWidth <= 1023) {
+        // Si la pantalla es de un dispositivo móvil
+        obstacleCreationLoop = setInterval(() => {
+            createMobileObstacle(); // Crear un obstáculo específico para móviles
+        }, obstacleInterval);
+    } else {
+        // Si la pantalla es de un dispositivo de escritorio
+        obstacleCreationLoop = setInterval(() => {
+            createDesktopObstacle(); // Crear un obstáculo específico para escritorio
+        }, obstacleInterval);
+    }
 }
 
 function adjustObstacleInterval() {
@@ -245,8 +292,8 @@ restartButton.addEventListener('click', restartGame);
 
 function restartGame() {
     restartPopup.style.display = 'none';
-    resetGame();
-    startGame();
+    resetGame(); // Reinicia el estado del juego
+    startGame(); // Vuelve a iniciar el juego
 }
 
 function showGameOverPopup() {
