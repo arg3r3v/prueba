@@ -92,8 +92,8 @@ function createMobileObstacle() {
     
     obstacle.style.backgroundSize = 'contain';
     obstacle.style.backgroundRepeat = 'no-repeat';
-    obstacle.style.width = '5vh'; // Cambiado a unidades vh
-    obstacle.style.height = '5vh'; // Cambiado a unidades vh
+    obstacle.style.width = '4.5vh'; // Cambiado a unidades vh
+    obstacle.style.height = '4.5vh'; // Cambiado a unidades vh
     
     gameArea.appendChild(obstacle);
 }
@@ -196,8 +196,8 @@ function createBug() {
     bug.style.backgroundImage = 'url("img/bicho1.png")';
     bug.style.backgroundSize = 'contain';
     bug.style.backgroundRepeat = 'no-repeat';
-    bug.style.width = '8vh'; // Cambiado a unidades vh
-    bug.style.height = '8vh'; // Cambiado a unidades vh
+    bug.style.width = '7vh'; // Cambiado a unidades vh
+    bug.style.height = '7vh'; // Cambiado a unidades vh
     gameArea.appendChild(bug);
 }
 
